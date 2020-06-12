@@ -1,0 +1,25 @@
+# Exceptions
+!/**/.*
+
+# unconventional js
+/packages/*/blueprints/*/files/
+/packages/*/vendor/
+
+# compiled output
+/packages/*/dist/
+/packages/*/tmp/
+
+# dependencies
+/node_modules/
+/packages/*/node_modules/
+
+# misc
+/packages/*/coverage/
+
+# ember-try
+/packages/*/.node_modules.ember-try/
+/packages/*/package.json.ember-try
+
+# IDE
+/.idea/
+/.history/

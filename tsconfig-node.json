@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": false,
+    "noEmit": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": ".",
+    "module": "es6",
+    "experimentalDecorators": true,
+    "paths": {
+      "@ember-yadda/demo/tests/*": ["packages/core/tests/*"],
+      "@ember-yadda/demo/dummy/*": ["packages/core/tests/dummy/app/*", "packages/core/app/*"],
+      "@ember-yadda/core": ["packages/core/addon"],
+      "@ember-yadda/core/*": ["packages/core/addon/*"],
+      "@ember-yadda/core/test-support": ["packages/core/addon-test-support"],
+      "@ember-yadda/core/test-support/*": ["packages/core/addon-test-support/*"],
+      "*": [
+        "types/*",
+        "packages/core/types/*"
+      ]
+    }
+  },
+  "include": [
+    ".eslintrc.js",
+    ".lintstagedrc.js",
+    ".prettierrc.js",
+    "packages/*/.ember-cli.js",
+    "packages/*/.template-lintrc.js",
+    "packages/*/ember-cli-build.js",
+    "packages/*/index.js",
+    "packages/*/testem.js",
+    "packages/*/blueprints/*/index.js",
+    "packages/*/config/**/*.js",
+    "packages/*/lib/*/index.js",
+    "packages/*/server/**/*.js",
+    "packages/*/tests/dummy/config/**/*.js"
+  ],
+  "exclude": [
+    "node_modules/",
+    "packages/*/node_modules/**"
+  ]
+}
