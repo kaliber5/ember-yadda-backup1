@@ -31,8 +31,7 @@
         "types/*",
         "packages/core/types/*"
       ]
-    },
-    "types": [],
+    }
   },
   "include": [
     "packages/*/addon/**/*",

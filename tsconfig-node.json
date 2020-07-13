@@ -44,7 +44,7 @@
     "packages/*/testem.js",
     "packages/*/blueprints/*/index.js",
     "packages/*/config/**/*.js",
-    "packages/*/lib/*/index.js",
+    "packages/*/lib/**/*.js",
     "packages/*/server/**/*.js",
     "packages/*/tests/dummy/config/**/*.js"
   ],
