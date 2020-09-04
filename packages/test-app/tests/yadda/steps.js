@@ -1,11 +1,15 @@
-const steps ={
-  'Given foo'() {},
-  'When bar'() {},
-  'Then (baz)'(baz, assert) {
-    debugger
+const steps = {
+  'Given $_number foos?'(number) {
+    this.assert.equal(number, 2);
   },
+  'When bar'() {},
+  'Then (baz)'(baz, assert) {},
   'Given foo foo foo'() {},
-  'When bar bar bar'() {},
+  async 'When bar bar bar'() {
+    console.log('before');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    console.log('after');
+  },
   'Then baz baz baz'() {},
 };
 

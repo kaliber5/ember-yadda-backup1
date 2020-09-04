@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import yadda, { Yadda, Library } from 'yadda';
+import yadda, { Yadda, Library, Dictionary } from 'yadda';
 import FeatureParser, {
   SpecificationExport,
   ScenarioExport,
@@ -8,6 +8,7 @@ import { cached } from 'tracked-toolbox';
 import requireModule from 'ember-require-module';
 import composeSteps from './compose-steps';
 import { StepDefinition } from '../types';
+import { generateDictionary } from './dictionary';
 
 export default class TestDeclarator {
   relativePath: string;
@@ -33,6 +34,10 @@ export default class TestDeclarator {
     return this.featureParser.parse(this.featureStr);
   }
 
+  @cached get dictionaryClassic(): Dictionary {
+    return generateDictionary();
+  }
+
   @cached get library():Library {
     // const legacyLibrary = requireModule(this.legacyStepsFileName) as (() => Library) | undefined;
 
@@ -50,7 +55,7 @@ export default class TestDeclarator {
       );
     }
 
-    const library: Library = (yadda.localisation.default.library() as unknown) as Library;
+    const library: Library = (yadda.localisation.default.library(this.dictionaryClassic) as unknown) as Library;
 
     return composeSteps(library, opinionatedLibrary);
   }
@@ -60,7 +65,6 @@ export default class TestDeclarator {
   }
 
   constructor({ relativePath, feature }: { relativePath: string; feature: string }) {
-    console.log({ relativePath });
     this.relativePath = relativePath;
     this.featureStr = feature;
   }
@@ -77,13 +81,17 @@ export default class TestDeclarator {
 
   runScenario(scenario: ScenarioExport, assert: Assert): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.yaddaInstance.run(scenario.steps, { assert }, (err: Error | null, result: unknown) => {
-        if (err) {
-          reject(err);
-        }
+      this.yaddaInstance.run(
+        scenario.steps,
+        { assert, ctx: {} },
+        (err: Error | null) => {
+          if (err) {
+            reject(err);
+          }
 
-        resolve(result);
-      });
+          resolve();
+        }
+      );
     });
   }
 }

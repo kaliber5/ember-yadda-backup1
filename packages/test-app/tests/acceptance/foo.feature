@@ -1,7 +1,7 @@
 Feature: Foo
 
 Background:
-  Given foo
+  Given 2 foos
   When bar
   Then baz
 
