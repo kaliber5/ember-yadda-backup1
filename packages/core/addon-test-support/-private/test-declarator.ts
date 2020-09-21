@@ -38,7 +38,7 @@ export default class TestDeclarator {
     return generateDictionary();
   }
 
-  @cached get library():Library {
+  @cached get library(): Library {
     // const legacyLibrary = requireModule(this.legacyStepsFileName) as (() => Library) | undefined;
 
     // if (legacyLibrary) {
@@ -55,7 +55,9 @@ export default class TestDeclarator {
       );
     }
 
-    const library: Library = (yadda.localisation.default.library(this.dictionaryClassic) as unknown) as Library;
+    const library: Library = (yadda.localisation.default.library(
+      this.dictionaryClassic
+    ) as unknown) as Library;
 
     return composeSteps(library, opinionatedLibrary);
   }
@@ -81,17 +83,13 @@ export default class TestDeclarator {
 
   runScenario(scenario: ScenarioExport, assert: Assert): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.yaddaInstance.run(
-        scenario.steps,
-        { assert, ctx: {} },
-        (err: Error | null) => {
-          if (err) {
-            reject(err);
-          }
-
-          resolve();
+      this.yaddaInstance.run(scenario.steps, { assert, ctx: {} }, (err: Error | null) => {
+        if (err) {
+          reject(err);
         }
-      );
+
+        resolve();
+      });
     });
   }
 }

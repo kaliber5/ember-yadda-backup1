@@ -1,6 +1,5 @@
 'use strict';
 
-const yadda = require('yadda');
 const Filter = require('broccoli-persistent-filter');
 const path = require('path');
 

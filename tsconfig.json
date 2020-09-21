@@ -27,9 +27,17 @@
       "@ember-yadda/core/*": ["packages/core/addon/*"],
       "@ember-yadda/core/test-support": ["packages/core/addon-test-support"],
       "@ember-yadda/core/test-support/*": ["packages/core/addon-test-support/*"],
+      "@ember-yadda/test-app": ["packages/test-app/app"],
+      "@ember-yadda/test-app/*": ["packages/test-app/app/*"],
+      "@ember-yadda/test-app/tests/*": ["packages/test-app/tests/*"],
+
+      "ember-cli-flash/*": [
+        "node_modules/ember-cli-flash/index.d.ts"
+      ],
+
       "*": [
         "types/*",
-        "packages/core/types/*"
+        "packages/*/types/*"
       ]
     }
   },

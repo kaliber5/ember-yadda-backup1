@@ -152,7 +152,7 @@ export default function composeSteps(
   Object.keys(mergedStepDefinitions).forEach((stepImplName) => {
     const stepImplementation = mergedStepDefinitions[stepImplName];
 
-    const regexResult = stepImplName.match(REGEX_STEP_NAME);
+    const regexResult = REGEX_STEP_NAME.exec(stepImplName);
 
     if (!regexResult)
       throw new Error(`Failed to parse the step implementation name: ${stepImplName}`);
@@ -160,7 +160,10 @@ export default function composeSteps(
     const [, methodNameRaw, assertionNameRaw] = regexResult;
     const methodName = methodNameRaw.toLowerCase() as 'define'; // actually, also 'given' | 'when' | 'then', but these are missing in @types/yadda
 
-    async function decoratedCallback(this: StepFnOpinionated, ...args: unknown[]): Promise<unknown> {
+    async function decoratedCallback(
+      this: StepFnOpinionated,
+      ...args: unknown[]
+    ): Promise<unknown> {
       const currentStepImplementation = lookupStepByAlias(
         mergedStepDefinitions,
         stepImplementation

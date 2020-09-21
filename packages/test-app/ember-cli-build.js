@@ -1,10 +1,62 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const fingerprintExtensions = require('broccoli-asset-rev/lib/default-options').extensions;
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    // Add options here
+    'ember-bootstrap': {
+      bootstrapVersion: 4,
+      importBootstrapFont: false,
+      importBootstrapCSS: false,
+      whitelist: ['bs-alert', 'bs-button', 'bs-modal'],
+    },
+
+    'ember-composable-helpers': {
+      only: [],
+    },
+
+    'ember-math-helpers': {
+      only: [],
+    },
+
+    cssModules: {
+      headerModules: ['@ember-yadda/test-app/styles/app'],
+    },
+
+    fingerprint: {
+      extensions: fingerprintExtensions.concat(['svg']),
+      fingerprintAssetMap: true,
+      generateAssetMap: true,
+      prepend: '/',
+    },
+
+    svgJar: {
+      strategy: 'inline',
+      sourceDirs: ['public/assets/icons'],
+      optimizer: {
+        plugins: [
+          {
+            inlineStyles: {
+              onlyMatchedOnce: false, // this is needed to inline all styles, and remove the error prone <style>
+            },
+          },
+        ],
+      },
+    },
+
+    'ember-cli-favicon': {
+      faviconsConfig: {
+        appName: '@ember-yadda/test-app',
+        appShortName: '@ember-yadda/test-app',
+        appDescription: '',
+        developerName: 'kaliber5 GmbH',
+        developerURL: 'https://www.kaliber5.de',
+        lang: 'en-US',
+        background: '#fff', // Background colour for flattened icons. `string`
+        theme_color: '#fff', // Theme color user for example in Android's task switcher. `string`
+      },
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
