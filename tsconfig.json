@@ -30,6 +30,7 @@
       "@ember-yadda/test-app": ["packages/test-app/app"],
       "@ember-yadda/test-app/*": ["packages/test-app/app/*"],
       "@ember-yadda/test-app/tests/*": ["packages/test-app/tests/*"],
+      "@ember-yadda/test-app/config/environment": ["packages/test-app/app/config/environment.d.ts"],
 
       "ember-cli-flash/*": [
         "node_modules/ember-cli-flash/index.d.ts"
@@ -37,7 +38,8 @@
 
       "*": [
         "types/*",
-        "packages/*/types/*"
+        "packages/core/types/*",
+        "packages/test-app/types/*"
       ]
     }
   },
