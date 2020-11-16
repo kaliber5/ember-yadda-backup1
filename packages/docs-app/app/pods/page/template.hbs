@@ -1,0 +1,33 @@
+<div class="foo">
+  {{this.page.attributes.html}}
+  {{html-safe this.page.attributes.html}}
+</div>
+
+
+<div>
+  {{#if this.prevPageSparse}}
+    {{#if (eq this.prevPageSparse.id "index")}}
+      <LinkTo
+        @route="index"
+      >
+        {{this.prevPageSparse.attributes.title}}
+      </LinkTo>
+    {{else}}
+      <LinkTo
+        @route="page"
+        @model={{this.prevPageSparse.id}}
+      >
+        {{this.prevPageSparse.attributes.title}}
+      </LinkTo>
+    {{/if}}
+  {{/if}}
+
+  {{#if this.nextPageSparse}}
+    <LinkTo
+      @route="page"
+      @model={{this.nextPageSparse.id}}
+    >
+      {{this.nextPageSparse.attributes.title}}
+    </LinkTo>
+  {{/if}}
+</div>

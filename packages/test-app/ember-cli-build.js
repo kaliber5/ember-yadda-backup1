@@ -21,7 +21,7 @@ module.exports = function (defaults) {
     },
 
     cssModules: {
-      headerModules: ['@ember-yadda/test-app/styles/app'],
+      headerModules: ['test-app/styles/app'],
     },
 
     fingerprint: {
@@ -47,8 +47,8 @@ module.exports = function (defaults) {
 
     'ember-cli-favicon': {
       faviconsConfig: {
-        appName: '@ember-yadda/test-app',
-        appShortName: '@ember-yadda/test-app',
+        appName: 'test-app',
+        appShortName: 'test-app',
         appDescription: '',
         developerName: 'kaliber5 GmbH',
         developerURL: 'https://www.kaliber5.de',

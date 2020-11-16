@@ -1,5 +1,5 @@
 import Helper from '@ember/component/helper';
-import translateError, { AnyError } from '@ember-yadda/test-app/utils/t-error';
+import translateError, { AnyError } from 'test-app/utils/t-error';
 import { inject as service } from '@ember/service';
 import Intl from 'ember-intl/services/intl';
 

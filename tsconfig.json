@@ -27,18 +27,23 @@
       "@ember-yadda/core/*": ["packages/core/addon/*"],
       "@ember-yadda/core/test-support": ["packages/core/addon-test-support"],
       "@ember-yadda/core/test-support/*": ["packages/core/addon-test-support/*"],
-      "@ember-yadda/test-app": ["packages/test-app/app"],
-      "@ember-yadda/test-app/*": ["packages/test-app/app/*"],
-      "@ember-yadda/test-app/tests/*": ["packages/test-app/tests/*"],
-      "@ember-yadda/test-app/config/environment": ["packages/test-app/app/config/environment.d.ts"],
+      "test-app": ["packages/test-app/app"],
+      "test-app/*": ["packages/test-app/app/*"],
+      "test-app/tests/*": ["packages/test-app/tests/*"],
 
-      "ember-cli-flash/*": [
-        "node_modules/ember-cli-flash/index.d.ts"
+      "fetch": [
+        "node_modules/ember-fetch"
+      ],
+
+      "@glimmer/tracking": [
+        "node_modules/ember-cached-decorator-polyfill",
+        "node_modules/@glimmer/tracking/dist/types"
       ],
 
       "*": [
         "types/*",
         "packages/core/types/*",
+        "packages/docs-app/types/*",
         "packages/test-app/types/*"
       ]
     }

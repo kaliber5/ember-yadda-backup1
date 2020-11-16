@@ -1,5 +1,5 @@
 {
-  "name": "@ember-yadda/test-app",
+  "name": "test-app",
   "version": "0.0.0",
   "private": true,
   "description": "Small description for test-app goes here",
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-waiters": "^2.2.0",
+    "@ember-yadda/core": "*",
     "@glimmer/component": "^1.0.1",
     "@glimmer/tracking": "^1.0.1",
     "@kaliber5/k5-ember-boilerplate": "kaliber5/k5-ember-boilerplate",
@@ -106,10 +107,6 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "volta": {
-    "node": "12.18.2",
-    "yarn": "1.22.4"
   },
   "husky": {
     "hooks": {

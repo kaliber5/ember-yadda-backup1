@@ -48,6 +48,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off', // When I do it, I mean it.
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
         '@typescript-eslint/explicit-function-return-type': 'error', // We want to be strict with types
+        '@typescript-eslint/unbound-method': 'off', // Need referenceing methods without invocation in more than one occasion.
       },
     },
 

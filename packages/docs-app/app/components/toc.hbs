@@ -1,0 +1,24 @@
+{{#if this.pagesSorted.length}}
+  <ul ...attributes>
+    {{#unless @pageSparseWithChildren}}
+      <LinkTo
+        @route="index"
+      >
+        {{this.toc.pageSparseIndexWithChildren.attributes.title}}
+      </LinkTo>
+    {{/unless}}
+
+    {{#each this.pagesSorted as |pageSparseWithChildren|}}
+      <li>
+        <LinkTo
+          @route="page"
+          @model={{pageSparseWithChildren.id}}
+        >
+          {{pageSparseWithChildren.attributes.title}}
+        </LinkTo>
+
+        <Toc @pageSparseWithChildren={{pageSparseWithChildren}}/>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

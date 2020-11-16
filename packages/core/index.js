@@ -26,10 +26,12 @@ module.exports = {
   // },
 
   setupPreprocessorRegistry(type, registry) {
+    console.log('setupPreprocessorRegistry')
     registry.add('js', {
       name: 'ember-cli-yadda',
       ext: ['feature', 'spec', 'specification'],
       toTree: (tree) => {
+        console.log('setupPreprocessorRegistry toTree')
         return new FeatureParser(tree, this.options);
       },
     });

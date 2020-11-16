@@ -4,8 +4,8 @@ module.exports = function (environment) {
   const ENV = {
     environment,
 
-    modulePrefix: '@ember-yadda/test-app',
-    podModulePrefix: '@ember-yadda/test-app/pods',
+    modulePrefix: 'test-app',
+    podModulePrefix: 'test-app/pods',
     rootURL: '/',
     locationType: 'auto',
     apiNamespace: process.env.EMBER_API_NAMESPACE || '',

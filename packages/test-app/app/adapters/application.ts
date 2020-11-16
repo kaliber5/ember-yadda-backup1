@@ -1,5 +1,5 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import config from '@ember-yadda/test-app/config/environment';
+import config from 'test-app/config/environment';
 
 export default class Application extends JSONAPIAdapter {
   namespace = config.apiNamespace;
